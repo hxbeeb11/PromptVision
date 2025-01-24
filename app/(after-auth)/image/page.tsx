@@ -5,6 +5,7 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { generateImage } from '@/utils/stabilityAI';
 import { SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import Image from 'next/image';
 
 export default function ImageGeneration() {
   const [imagePrompt, setImagePrompt] = useState<string>('');
@@ -59,7 +60,7 @@ export default function ImageGeneration() {
         {isDropdownOpen && (
           <div className="mt-2 text-blue-900">
             <p className="mt-2">
-            This tool allows you to generate images based on a description. Here's how to use it:
+            This tool allows you to generate images based on a description. Here&apos;s how to use it:
             </p>
             <ul className="list-disc list-inside mt-2">
               <li>Type a detailed description of the image you want to generate in the input box below.</li>
@@ -82,7 +83,13 @@ export default function ImageGeneration() {
       <p>Generating image...</p>
     ) : generatedImage ? (
       <>
-        <img src={generatedImage} alt="Generated" className="max-w-full max-h-full object-contain" />
+        <Image 
+          src={generatedImage} 
+          alt="Generated" 
+          className="max-w-full max-h-full object-contain"
+          width={512}
+          height={512}
+        />
         <Button
           onClick={handleDownloadImage}
           className="bg-blue-500 text-white mt-4"

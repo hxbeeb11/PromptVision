@@ -58,7 +58,7 @@ export default function Chat() {
         {isDropdownOpen && (
           <div className="mt-2 text-blue-900">
             <p className="mt-2">
-              This chat interface allows you to interact with a language model. Here's how you can use it:
+              This chat interface allows you to interact with a language model. Here&apos;s how you can use it:
             </p>
             <ul className="list-disc list-inside mt-2">
               <li>Type your question or query in the input box below.</li>
